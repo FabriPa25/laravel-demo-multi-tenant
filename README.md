@@ -57,10 +57,18 @@ Ho creato le rotte nel file `web.php`, i controller e i model con le rispettive 
 
 La relazione tra `Company` e `Client` è **one-to-many**:
 una company può avere molti clienti, ogni cliente appartiene a una sola company.
+
+La stessa logica vale per `Company` e `User`: una company può avere più utenti,
+il che permette in futuro a più persone della stessa azienda di accedere 
+alla piattaforma condividendo gli stessi dati.
 ```php
 // Company.php
 public function clients() {
     return $this->hasMany(Client::class);
+}
+
+public function users() {
+    return $this->hasMany(User::class);
 }
 
 // Client.php
@@ -88,6 +96,7 @@ modifica ed eliminazione.
 - Associazione utente a una Company
 - CRUD completo dei clienti isolato per company
 - Middleware personalizzato per protezione accessi cross-tenant
+- Relazioni Eloquent one-to-many tra Company, User e Client
 - Paginazione sulla lista clienti
 - Layout condiviso tramite Blade components
 
@@ -129,4 +138,4 @@ php artisan serve
 Progetto creato come demo tecnica per mostrare la gestione di architetture 
 multi-tenant in Laravel.
 I progetti in produzione (QuotigyDash, CreatorLedger) seguono la stessa logica 
-con funzionalità estese come fatturazione, gestione ruoli
+con funzionalità estese come fatturazione, gestione ruoli e integrazione API esterne.
