@@ -1,23 +1,32 @@
 <x-layout>
-    <x-navbar />
 
-    <div class="container mt-5">
-        <h2>Add New Client</h2>
+    <div class="form-card">
+        <h4 class="form-title">Aggiungi Cliente</h4>
 
-        <form action="{{ route('clients.store') }}" method="POST">
+        <form method="POST" action="{{ route('clients.store') }}">
             @csrf
 
-            <div class="mb-3">
-                <label class="form-label">Name</label>
-                <input type="text" name="name" class="form-control" required>
+            <div class="form-group">
+                <label class="form-label">Nome completo</label>
+                <input type="text" name="name" class="form-input" value="{{ old('name') }}" placeholder="es. Mario Rossi" required>
+                @error('name')
+                    <div class="error-msg">{{ $message }}</div>
+                @enderror
             </div>
 
-            <div class="mb-3">
+            <div class="form-group">
                 <label class="form-label">Email</label>
-                <input type="email" name="email" class="form-control" required>
+                <input type="email" name="email" class="form-input" value="{{ old('email') }}" placeholder="es. mario@azienda.com" required>
+                @error('email')
+                    <div class="error-msg">{{ $message }}</div>
+                @enderror
             </div>
 
-            <button class="btn btn-success">Create Client</button>
+            <div class="form-footer">
+                <button type="submit" class="btn btn-primary">Salva</button>
+                <a href="{{ route('clients.index') }}" class="btn btn-ghost">Annulla</a>
+            </div>
         </form>
     </div>
+
 </x-layout>

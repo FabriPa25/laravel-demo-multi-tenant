@@ -1,24 +1,33 @@
 <x-layout>
-    <x-navbar />
 
-    <div class="container mt-5">
-        <h2>Edit Client</h2>
+    <div class="form-card">
+        <h4 class="form-title">Modifica Cliente</h4>
 
-        <form action="{{ route('clients.update', $client) }}" method="POST">
+        <form method="POST" action="{{ route('clients.update', $client) }}">
             @csrf
             @method('PUT')
 
-            <div class="mb-3">
-                <label class="form-label">Name</label>
-                <input type="text" name="name" value="{{ $client->name }}" class="form-control" required>
+            <div class="form-group">
+                <label class="form-label">Nome completo</label>
+                <input type="text" name="name" class="form-input" value="{{ old('name', $client->name) }}" required>
+                @error('name')
+                    <div class="error-msg">{{ $message }}</div>
+                @enderror
             </div>
 
-            <div class="mb-3">
+            <div class="form-group">
                 <label class="form-label">Email</label>
-                <input type="email" name="email" value="{{ $client->email }}" class="form-control" required>
+                <input type="email" name="email" class="form-input" value="{{ old('email', $client->email) }}" required>
+                @error('email')
+                    <div class="error-msg">{{ $message }}</div>
+                @enderror
             </div>
 
-            <button class="btn btn-primary">Update Client</button>
+            <div class="form-footer">
+                <button type="submit" class="btn btn-primary">Aggiorna</button>
+                <a href="{{ route('clients.index') }}" class="btn btn-ghost">Annulla</a>
+            </div>
         </form>
     </div>
+
 </x-layout>
