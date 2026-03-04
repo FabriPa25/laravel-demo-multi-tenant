@@ -8,7 +8,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Client extends Model
 {
     use HasFactory;
-    protected $fillable = ['company_id','name','email'];
 
-    public function company() { return $this->belongsTo(Company::class); }
+    // campi che possono essere scritti in massa
+    protected $fillable = ['company_id', 'name', 'email'];
+
+    // ogni cliente appartiene a una company (logica multi-tenant)
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
 }

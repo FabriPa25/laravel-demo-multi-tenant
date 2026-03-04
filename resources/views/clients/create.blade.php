@@ -1,19 +1,9 @@
 <x-layout>
 
-<div class="row d-flex justify-content-center mb-5">
-     <div class="form-card mt-5">
-        <h4 class=" text-center">Creazione Cliente</h4>      
-    </div>
-</div>
-     
-       
+    <div class="form-card">
+        <h4 class="form-title">Aggiungi Cliente</h4>
 
-
-
-<div class="container">
-    <div class="row d-flex justify-content-center">
-        <div class="col-4 form-card">
-               <form method="POST" action="{{ route('clients.store') }}">
+        <form method="POST" action="{{ route('clients.store') }}">
             @csrf
 
             <div class="form-group">
@@ -37,13 +27,26 @@
                 <a href="{{ route('clients.index') }}" class="btn btn-ghost">Annulla</a>
             </div>
         </form>
-        </div>
     </div>
-</div>
 
+    {{-- Lista clienti esistenti, utile per evitare duplicati --}}
+    @if($clients->isNotEmpty())
+        <div class="form-card" style="margin-top: 24px;">
+            <h5 class="form-title">Clienti già registrati</h5>
 
+            <ul style="list-style: none; padding: 0;">
+                @foreach($clients as $client)
+                    <li style="padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px;">
+                        <strong>{{ $client->name }}</strong> — {{ $client->email }}
+                    </li>
+                @endforeach
+            </ul>
 
-     
-   
+            {{-- link paginazione per navigare tra tutti i clienti --}}
+            <div style="margin-top: 16px;">
+                {{ $clients->links() }}
+            </div>
+        </div>
+    @endif
 
 </x-layout>
