@@ -49,7 +49,7 @@
         <header class="topbar">
             <h3>Demo SaaS</h3>
             @auth
-            <span class="logged-as">Logged in as <strong>{{ Auth::user()->name }}</strong></span>
+            <span class="logged-as">Benvenuto {{ Auth::user()->name }}</span>
             @endauth
         </header>
 

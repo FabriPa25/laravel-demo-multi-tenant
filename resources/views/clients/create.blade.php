@@ -1,9 +1,19 @@
 <x-layout>
 
-    <div class="form-card">
-        <h4 class="form-title">Aggiungi Cliente</h4>
+<div class="row d-flex justify-content-center mb-5">
+     <div class="form-card mt-5">
+        <h4 class=" text-center">Creazione Cliente</h4>      
+    </div>
+</div>
+     
+       
 
-        <form method="POST" action="{{ route('clients.store') }}">
+
+
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="col-4 form-card">
+               <form method="POST" action="{{ route('clients.store') }}">
             @csrf
 
             <div class="form-group">
@@ -27,6 +37,13 @@
                 <a href="{{ route('clients.index') }}" class="btn btn-ghost">Annulla</a>
             </div>
         </form>
+        </div>
     </div>
+</div>
+
+
+
+     
+   
 
 </x-layout>

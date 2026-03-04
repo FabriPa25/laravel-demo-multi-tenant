@@ -1,9 +1,17 @@
 <x-layout>
+<div class="row d-flex justify-content-center mb-5">
+     <div class="form-card mt-5">
+        <h4 class=" text-center">Modifica Cliente</h4>      
+    </div>
+</div>
+   
 
-    <div class="form-card">
-        <h4 class="form-title">Modifica Cliente</h4>
 
-        <form method="POST" action="{{ route('clients.update', $client) }}">
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="col-4">
+
+  <form method="POST" action="{{ route('clients.update', $client) }}">
             @csrf
             @method('PUT')
 
@@ -28,6 +36,11 @@
                 <a href="{{ route('clients.index') }}" class="btn btn-ghost">Annulla</a>
             </div>
         </form>
+
+
+        </div>
     </div>
+</div>
+
 
 </x-layout>
