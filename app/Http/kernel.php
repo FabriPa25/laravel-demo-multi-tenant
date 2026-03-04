@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\EnsureCompany;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -48,7 +49,7 @@ class Kernel extends HttpKernel
      */
     protected $routeMiddleware = [
         'auth' => \App\Http\Middleware\Authenticate::class,
-        'ensure.company' => \App\Http\Middleware\EnsureCompany::class, // <-- qui
+        'ensure.company' => EnsureCompany::class, // <-- qui
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
     ];
 }

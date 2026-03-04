@@ -22,6 +22,11 @@
                      </div>
 
                         <div class="mb-3">
+                            <label class="form-label">Company Name</label>
+                            <input type="text" class="form-control" name="company_name" required>
+                        </div>
+
+                        <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email address</label>
                         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" required>
                     
