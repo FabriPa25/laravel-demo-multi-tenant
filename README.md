@@ -138,4 +138,4 @@ php artisan serve
 Progetto creato come demo tecnica per mostrare la gestione di architetture 
 multi-tenant in Laravel.
 I progetti in produzione (QuotigyDash, CreatorLedger) seguono la stessa logica 
-con funzionalità estese come fatturazione, gestione ruoli e integrazione API esterne.
+con funzionalità estese come fatturazione, gestione ruoli.
