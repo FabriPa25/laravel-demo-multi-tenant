@@ -1,22 +1,25 @@
 <x-layout>
   
 
-
-            <h1 class="text-center">Register</h1>
- 
-
+<div class="container">
+    <div class="row">
+        <div class="col-12 mt-5">
+            <h3 class="text-center">Registrati</h3>
+        </div>    
+    </div>
+</div>
 
 
                   <div class="container mt-5">
                       <div class="row d-flex justify-content-center">
-                          <div class="col-6 mt-5">
+                          <div class="col-4 mt-5">
                           <form action="{{ route('register') }}" method="POST">
                                 @csrf
 
-                        <div class="mb-3">
+                    <div class="mb-3">
                                 <label class="form-label">Name</label>
                                 <input type="text" class="form-control" name="name" required>
-                            </div>
+                     </div>
 
                         <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email address</label>
@@ -33,18 +36,13 @@
                         <input type="password" class="form-control" id="exampleInputPassword1" name="password_confirmation" required>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="mb-3"><a href="{{ route('login') }}">Sei Già Registrato</a></div>
+
+                    <button  type="submit" class="btn btn-primary">Submit</button>
                     </form>
                           </div>
                       </div>
                   </div>
-
-
-
-
-  
-
-
 
 
 
